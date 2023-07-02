@@ -31,16 +31,16 @@ production stylesheet in assets/built/screen.css
 :root {
 
     /* Colours */
-    --color-green: #a4d037;
-    --color-yellow: #fecd35;
-    --color-red: #f05230;
-    --color-darkgrey: #15171A;
-    --color-midgrey: #738a94;
-    --color-lightgrey: #f1f1f1;
-    --color-secondary-text: #979797;
-    --color-border: #e1e1e1;
-    --color-wash: #e5eff5;
-    --color-darkmode: #151719;
+    --color-green: #A3BE8C;
+    --color-yellow: #EBCB8B;
+    --color-red: #BF616A;
+    --color-darkgrey: #3B4252;
+    --color-midgrey: #434C5E;
+    --color-lightgrey: #D8DEE9;
+    --color-secondary-text: #4C566A;
+    --color-border: #E5E9F0;
+    --color-wash: #81A1C1;
+    --color-darkmode: #2E3440;
 
     /*
     An accent color is also set by Ghost itself in
@@ -52,9 +52,9 @@ production stylesheet in assets/built/screen.css
      */
 
     /* Fonts */
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    --font-serif: Georgia, Times, serif;
-    --font-mono: Menlo, Courier, monospace;
+    --font-sans:  'Roboto', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Roboto Serif', Times, serif;
+    --font-mono: 'Roboto Mono', monospace;
 
 }
 
@@ -107,6 +107,28 @@ production stylesheet in assets/built/screen.css
     object-fit: cover;
 }
 
+.site-header-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, color-mod(var(--color-darkmode) a(100%)), transparent);
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 1;
+}
+
+@media (max-width: 767px) {
+    .site-header-content::before {
+        background-size: 100% 50%;
+    }
+}
+
 .site-header-content {
     position: relative;
     z-index: 100;
@@ -141,6 +163,7 @@ production stylesheet in assets/built/screen.css
 
 .site-header-inner {
     position: relative;
+    z-index: 5;
 }
 
 .site-header-content.left-aligned .site-header-inner {
@@ -165,6 +188,7 @@ production stylesheet in assets/built/screen.css
     padding: 0;
     font-size: 5rem;
     font-weight: 800;
+    text-shadow: var(--color-darkmode) 2px 2px 10px;
 }
 
 .has-serif-title .site-title {
@@ -244,10 +268,10 @@ production stylesheet in assets/built/screen.css
         max-width: 60%;
     }
     .site-title {
-        font-size: 3.4rem !important;
+        font-size: 3.0rem !important;
     }
     .site-description {
-        font-size: 2.2rem !important;
+        font-size: 2.0rem !important;
     }
     .site-logo + .site-description {
         margin-top: 12px !important;
@@ -1721,7 +1745,7 @@ iframe.instagram-media + script + :not([id]) {
 }
 
 .article-byline-meta {
-    color: var(--color-secondary-text);
+    color: var(--color-secondary-text) !important;
     font-size: 1.4rem;
     line-height: 1.2em;
 }
@@ -2307,7 +2331,7 @@ html.dark-mode .footer-cta-title {
 
 @media (prefers-color-scheme: dark) {
     html.auto-color body {
-        color: rgba(255, 255, 255, 0.75);
+        color: var(--color-lightgrey);
         background: var(--color-darkmode);
     }
 
@@ -2342,7 +2366,7 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color :is(.post-card-tags, .post-card-meta, .article-tag a, .byline-meta-content, .pagination .page-number) {
-        color: color-mod(var(--color-secondary-text) l(-22%));
+        color: var(--color-lightgrey);
     }
 
     html.auto-color .post-card-featured {
@@ -2354,7 +2378,7 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .post-card-excerpt {
-        color: var(--color-secondary-text);
+        color: var(--color-lightgrey);
     }
 
     html.auto-color .pagination a {
@@ -2413,7 +2437,7 @@ html.dark-mode .footer-cta-title {
     html.auto-color .gh-content :not(pre) > code {
         background: color-mod(var(--color-darkgrey) l(+6%));
         border-color: color-mod(var(--color-darkmode) l(+8%));
-        color: var(--color-wash);
+        color: var(--color-lightgrey);
     }
 
     :where(html.auto-color) .gh-content a {
