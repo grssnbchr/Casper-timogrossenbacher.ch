@@ -2206,7 +2206,7 @@ html.dark-mode .article-title {
 }
 
 html.dark-mode .article-excerpt {
-    color: var(--color-secondary-text);
+    color: var(--color-lightgrey);
 }
 
 html.dark-mode .post-full-image {
@@ -2398,7 +2398,7 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .article-excerpt {
-        color: var(--color-secondary-text);
+        color: var(--color-lightgrey);
     }
 
     html.auto-color .post-full-image {
