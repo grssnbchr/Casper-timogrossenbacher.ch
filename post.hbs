@@ -6,6 +6,11 @@ into the {body} tag of the default.hbs template --}}
 
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the post --}}
+{{#has tag='#nightride'}}
+ <script>
+    window.location.href = '{{@site.url}}';
+ </script>
+{{else}}
 
 <main id="site-main" class="site-main">
 <article class="article {{post_class}} {{#match @custom.post_image_style "Full"}}image-full{{else match @custom.post_image_style "=" "Small"}}image-small{{/match}}">
@@ -121,9 +126,9 @@ into the {body} tag of the default.hbs template --}}
     so that people have something else to read when they finish this one.
 
     This query gets the latest 3 posts on the site, but adds a filter to
-    exclude the post we're currently on from being included. --}}
-    {{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
-
+    exclude the post we're currently on from being included.
+    It also excludes posts with the #nightride tag. --}}
+    {{#get "posts" filter="id:-{{id}}+tags:-hash-nightride" limit="3" as |more_posts|}}
         {{#if more_posts}}
             <aside class="read-more-wrap outer">
                 <div class="read-more inner">
@@ -133,8 +138,7 @@ into the {body} tag of the default.hbs template --}}
                 </div>
             </aside>
         {{/if}}
-
     {{/get}}
 {{/if}}
-
+{{/has}}
 {{/post}}
