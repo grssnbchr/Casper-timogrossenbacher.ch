@@ -27,7 +27,7 @@ production stylesheet in assets/built/screen.css
 
 /* Import CSS reset and base styles */
 @import "global.css";
-
+@import "prism.css";
 :root {
 
     /* Colours */
@@ -2454,7 +2454,7 @@ html.dark-mode .footer-cta-title {
 
     html.auto-color .gh-content code {
         color: #fff;
-        background: #000;
+        /* background: #000; */
     }
 
     html.auto-color hr {
