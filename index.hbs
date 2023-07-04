@@ -32,13 +32,15 @@ into the {body} of the default.hbs template --}}
             {{#if @site.description}}
                 <p class="site-description">{{@site.description}}</p>
             {{/if}}
+            <small class="image-credits">Foto: <a href="https://www.instagram.com/ursjaudas">Urs Jaudas</a></small>
         </div>
     {{/match}}
-
 </div>
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
+    <small class="image-credits-mobile">Foto: <a href="https://www.instagram.com/ursjaudas">Urs Jaudas</a></small>
+
 <div class="inner posts">
     <div class="post-feed">
         {{#foreach posts}}
